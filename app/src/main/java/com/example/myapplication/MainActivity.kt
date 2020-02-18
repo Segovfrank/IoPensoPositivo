@@ -162,10 +162,13 @@ class MainActivity : AppCompatActivity() {
         prevBtn = findViewById(R.id.btn_prev)
         nextBtn = findViewById(R.id.btn_next)
 
-        textView.text = mensajesPositivos[Random.nextInt(mensajesPositivos.size)]
+        currentPosition = Random.nextInt(mensajesPositivos.size)
+
+        textView.text = mensajesPositivos[currentPosition]
 
         button.setOnClickListener {
-            textView.text = mensajesPositivos[Random.nextInt(mensajesPositivos.size)]
+            currentPosition = Random.nextInt(mensajesPositivos.size)
+            textView.text = mensajesPositivos[currentPosition]
         }
 
         nextBtn.setOnClickListener {
@@ -194,7 +197,6 @@ class MainActivity : AppCompatActivity() {
                 textLayout.error = "Error con el numero"
             }
         }
-
     }
 
     private fun checkPosition(){
